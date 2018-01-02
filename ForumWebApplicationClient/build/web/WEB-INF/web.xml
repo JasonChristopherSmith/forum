@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <servlet>
+        <servlet-name>RegistrationController</servlet-name>
+        <servlet-class>controller.RegistrationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationController</servlet-name>
+        <url-pattern>/RegistrationController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+       <servlet>
+        <servlet-name>Topic</servlet-name>
+        <servlet-class>controller.TopicController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Topic</servlet-name>
+        <url-pattern>/TopicController</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

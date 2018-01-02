@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://forumService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://forumService/">
+
+<xs:element name="addTopic" type="tns:addTopic" />
+
+<xs:element name="addTopicResponse" type="tns:addTopicResponse" />
+
+<xs:element name="hello" type="tns:hello" />
+
+<xs:element name="helloResponse" type="tns:helloResponse" />
+
+<xs:element name="loginUser" type="tns:loginUser" />
+
+<xs:element name="loginUserResponse" type="tns:loginUserResponse" />
+
+<xs:element name="registerUser" type="tns:registerUser" />
+
+<xs:element name="registerUserResponse" type="tns:registerUserResponse" />
+
+<xs:complexType name="registerUser">
+<xs:sequence>
+<xs:element name="register" type="tns:registrationModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrationModel">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="message" type="xs:string" minOccurs="0" />
+<xs:element name="mobile" type="xs:string" minOccurs="0" />
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+<xs:element name="surname" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:registrationModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTopic">
+<xs:sequence>
+<xs:element name="topic" type="tns:topicModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topicModel">
+<xs:sequence>
+<xs:element name="date" type="xs:dateTime" minOccurs="0" />
+<xs:element name="topicName" type="xs:string" minOccurs="0" />
+<xs:element name="user" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTopicResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:topicModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginUser">
+<xs:sequence>
+<xs:element name="login" type="tns:loginModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginModel">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="message" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:loginModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
