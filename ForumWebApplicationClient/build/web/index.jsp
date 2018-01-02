@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>CTI Forum Project</title>
     </head>
-    <body>
+    <body align="center">
         <h1>CTI Forum Project</h1>
         <br/>
         <a href="view/jsp/registration.jsp">Register here!!!!!!</a><br/>
