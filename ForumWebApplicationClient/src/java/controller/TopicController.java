@@ -33,7 +33,7 @@ public class TopicController extends HttpServlet {
 
     }
 
-    public void displayTopics() {
+    public List<TopicModel> displayTopics() {
         
         
         TopicModel topicModel = new TopicModel();
@@ -43,6 +43,7 @@ public class TopicController extends HttpServlet {
         ForumService port = service.getForumServicePort();
         
         topicModelCache = port.retrieveTopics(topicModel);
+        return topicModelCache;
 
     }
 }

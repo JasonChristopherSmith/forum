@@ -8,9 +8,13 @@ package controller;
 import forumServiceConsume.ForumService;
 import forumServiceConsume.ForumService_Service;
 import forumServiceConsume.LoginModel;
+import forumServiceConsume.TopicModel;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +26,7 @@ public class LoginController extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         HttpSession session = request.getSession(false);
-        
+        List<TopicModel> topicModelCache = new ArrayList<>();
 
         LoginModel loginModel = new LoginModel();
         TopicController topicController = new TopicController();
@@ -55,9 +59,15 @@ public class LoginController extends HttpServlet {
 
                 try {
                     session.invalidate();
-                    topicController.displayTopics();
-                    response.sendRedirect("view/jsp/topics.jsp");
+                    
+                    topicModelCache = topicController.displayTopics();
+                    session.setAttribute("topicModelCache", topicModelCache);
+                    getServletContext().getRequestDispatcher("view/jsp/topics.jsp").forward(request, response);
+                    
+//                    response.sendRedirect("view/jsp/topics.jsp");
                 } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ServletException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
