@@ -1,6 +1,7 @@
 
 package forumServiceConsume;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -83,5 +84,20 @@ public interface ForumService {
     public RegistrationModel registerUser(
         @WebParam(name = "register", targetNamespace = "")
         RegistrationModel register);
+
+    /**
+     * 
+     * @param retrieveTopic
+     * @return
+     *     returns java.util.List<forumServiceConsume.TopicModel>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "retrieveTopics", targetNamespace = "http://forumService/", className = "forumServiceConsume.RetrieveTopics")
+    @ResponseWrapper(localName = "retrieveTopicsResponse", targetNamespace = "http://forumService/", className = "forumServiceConsume.RetrieveTopicsResponse")
+    @Action(input = "http://forumService/ForumService/retrieveTopicsRequest", output = "http://forumService/ForumService/retrieveTopicsResponse")
+    public List<TopicModel> retrieveTopics(
+        @WebParam(name = "retrieveTopic", targetNamespace = "")
+        TopicModel retrieveTopic);
 
 }

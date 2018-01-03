@@ -22,8 +22,12 @@ public class LoginController extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         HttpSession session = request.getSession(false);
+        
 
         LoginModel loginModel = new LoginModel();
+        TopicController topicController = new TopicController();
+        
+        
         loginModel.setEmail(request.getParameter("email"));
 
         loginModel.setPassword(request.getParameter("password"));
@@ -51,6 +55,7 @@ public class LoginController extends HttpServlet {
 
                 try {
                     session.invalidate();
+                    topicController.displayTopics();
                     response.sendRedirect("view/jsp/topics.jsp");
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

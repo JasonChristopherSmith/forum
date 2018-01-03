@@ -28,6 +28,12 @@
 <message name="registerUserResponse">
 <part name="parameters" element="tns:registerUserResponse" />
 </message>
+<message name="retrieveTopics">
+<part name="parameters" element="tns:retrieveTopics" />
+</message>
+<message name="retrieveTopicsResponse">
+<part name="parameters" element="tns:retrieveTopicsResponse" />
+</message>
 <portType name="ForumService">
 <operation name="hello">
 <input wsam:Action="http://forumService/ForumService/helloRequest" message="tns:hello" />
@@ -44,6 +50,10 @@
 <operation name="registerUser">
 <input wsam:Action="http://forumService/ForumService/registerUserRequest" message="tns:registerUser" />
 <output wsam:Action="http://forumService/ForumService/registerUserResponse" message="tns:registerUserResponse" />
+</operation>
+<operation name="retrieveTopics">
+<input wsam:Action="http://forumService/ForumService/retrieveTopicsRequest" message="tns:retrieveTopics" />
+<output wsam:Action="http://forumService/ForumService/retrieveTopicsResponse" message="tns:retrieveTopicsResponse" />
 </operation>
 </portType>
 <binding name="ForumServicePortBinding" type="tns:ForumService">
@@ -76,6 +86,15 @@
 </output>
 </operation>
 <operation name="registerUser">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="retrieveTopics">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

@@ -30,14 +30,24 @@ public class ObjectFactory {
     private final static QName _AddTopicResponse_QNAME = new QName("http://forumService/", "addTopicResponse");
     private final static QName _AddTopic_QNAME = new QName("http://forumService/", "addTopic");
     private final static QName _Hello_QNAME = new QName("http://forumService/", "hello");
+    private final static QName _RetrieveTopics_QNAME = new QName("http://forumService/", "retrieveTopics");
     private final static QName _RegisterUser_QNAME = new QName("http://forumService/", "registerUser");
     private final static QName _HelloResponse_QNAME = new QName("http://forumService/", "helloResponse");
+    private final static QName _RetrieveTopicsResponse_QNAME = new QName("http://forumService/", "retrieveTopicsResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: forumServiceConsume
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link RetrieveTopics }
+     * 
+     */
+    public RetrieveTopics createRetrieveTopics() {
+        return new RetrieveTopics();
     }
 
     /**
@@ -62,6 +72,14 @@ public class ObjectFactory {
      */
     public AddTopicResponse createAddTopicResponse() {
         return new AddTopicResponse();
+    }
+
+    /**
+     * Create an instance of {@link RetrieveTopicsResponse }
+     * 
+     */
+    public RetrieveTopicsResponse createRetrieveTopicsResponse() {
+        return new RetrieveTopicsResponse();
     }
 
     /**
@@ -183,6 +201,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RetrieveTopics }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://forumService/", name = "retrieveTopics")
+    public JAXBElement<RetrieveTopics> createRetrieveTopics(RetrieveTopics value) {
+        return new JAXBElement<RetrieveTopics>(_RetrieveTopics_QNAME, RetrieveTopics.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RegisterUser }{@code >}}
      * 
      */
@@ -198,6 +225,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://forumService/", name = "helloResponse")
     public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
         return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RetrieveTopicsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://forumService/", name = "retrieveTopicsResponse")
+    public JAXBElement<RetrieveTopicsResponse> createRetrieveTopicsResponse(RetrieveTopicsResponse value) {
+        return new JAXBElement<RetrieveTopicsResponse>(_RetrieveTopicsResponse_QNAME, RetrieveTopicsResponse.class, null, value);
     }
 
 }

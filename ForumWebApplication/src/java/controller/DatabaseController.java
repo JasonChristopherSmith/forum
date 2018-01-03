@@ -8,7 +8,9 @@ package controller;
 import dao.DatabaseConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.LoginModel;
@@ -101,5 +103,32 @@ public class DatabaseController {
 
         System.out.println(date);
     }
+    
+    public List<TopicModel> retrieveTopics(){
+        
+        TopicModel topicModel = new TopicModel();
+        List<TopicModel> topicModelCache = new ArrayList<>();
+        
+        try {
+            ResultSet resultSet;
+            
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            resultSet = databaseConnection.retrieveDatabase("SELECT * FROM Topics");
+
+            while (resultSet.next()){
+                topicModel.setTopicName(resultSet.getString(2));
+                topicModel.setUser(resultSet.getString(3));
+                
+                topicModelCache.add(topicModel);
+                
+            }
+
+            return topicModelCache;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    } 
 
 }

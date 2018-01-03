@@ -26,4 +26,9 @@
         <url-pattern>/TopicController</url-pattern>
     </servlet-mapping>
     
+<!--    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+        <taglib-location>/WEB-INF/c.tld</taglib-location>
+    </taglib>-->
+    
 </web-app>

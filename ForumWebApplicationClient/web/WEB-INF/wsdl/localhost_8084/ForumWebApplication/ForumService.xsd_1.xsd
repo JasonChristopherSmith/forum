@@ -16,6 +16,10 @@
 
 <xs:element name="registerUserResponse" type="tns:registerUserResponse" />
 
+<xs:element name="retrieveTopics" type="tns:retrieveTopics" />
+
+<xs:element name="retrieveTopicsResponse" type="tns:retrieveTopicsResponse" />
+
 <xs:complexType name="registerUser">
 <xs:sequence>
 <xs:element name="register" type="tns:registrationModel" minOccurs="0" />
@@ -39,9 +43,9 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="addTopic">
+<xs:complexType name="retrieveTopics">
 <xs:sequence>
-<xs:element name="topic" type="tns:topicModel" minOccurs="0" />
+<xs:element name="retrieveTopic" type="tns:topicModel" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
@@ -50,6 +54,18 @@
 <xs:element name="date" type="xs:dateTime" minOccurs="0" />
 <xs:element name="topicName" type="xs:string" minOccurs="0" />
 <xs:element name="user" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retrieveTopicsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:topicModel" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTopic">
+<xs:sequence>
+<xs:element name="topic" type="tns:topicModel" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
