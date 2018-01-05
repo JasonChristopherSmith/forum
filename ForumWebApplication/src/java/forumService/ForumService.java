@@ -29,7 +29,11 @@ public class ForumService {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-
+    //this method receives the parameters set from the web page. It the creates an instance of the database controller 
+    //in order to use the methods in the database controller. It uses the register() method to insert the records into 
+    //the database.it then returns the updated model and stores it into a registration model which gets returned to the 
+    //front end controller for further validation
+    
     @WebMethod(operationName = "registerUser")
     public RegistrationModel registerUser(@WebParam(name = "register") RegistrationModel registrationModel) {
 
