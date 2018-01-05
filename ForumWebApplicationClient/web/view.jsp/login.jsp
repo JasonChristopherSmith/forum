@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Login
-    Created on : 29 Dec 2017, 12:32:18 PM
-    Author     : Keagan
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
