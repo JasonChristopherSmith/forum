@@ -29,10 +29,10 @@ public class ObjectFactory {
     private final static QName _RegisterUserResponse_QNAME = new QName("http://forumService/", "registerUserResponse");
     private final static QName _AddTopicResponse_QNAME = new QName("http://forumService/", "addTopicResponse");
     private final static QName _AddTopic_QNAME = new QName("http://forumService/", "addTopic");
-    private final static QName _Hello_QNAME = new QName("http://forumService/", "hello");
     private final static QName _RetrieveTopics_QNAME = new QName("http://forumService/", "retrieveTopics");
+    private final static QName _AddComments_QNAME = new QName("http://forumService/", "addComments");
+    private final static QName _AddCommentsResponse_QNAME = new QName("http://forumService/", "addCommentsResponse");
     private final static QName _RegisterUser_QNAME = new QName("http://forumService/", "registerUser");
-    private final static QName _HelloResponse_QNAME = new QName("http://forumService/", "helloResponse");
     private final static QName _RetrieveTopicsResponse_QNAME = new QName("http://forumService/", "retrieveTopicsResponse");
 
     /**
@@ -48,14 +48,6 @@ public class ObjectFactory {
      */
     public RetrieveTopics createRetrieveTopics() {
         return new RetrieveTopics();
-    }
-
-    /**
-     * Create an instance of {@link Hello }
-     * 
-     */
-    public Hello createHello() {
-        return new Hello();
     }
 
     /**
@@ -83,19 +75,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HelloResponse }
-     * 
-     */
-    public HelloResponse createHelloResponse() {
-        return new HelloResponse();
-    }
-
-    /**
      * Create an instance of {@link RegisterUser }
      * 
      */
     public RegisterUser createRegisterUser() {
         return new RegisterUser();
+    }
+
+    /**
+     * Create an instance of {@link AddCommentsResponse }
+     * 
+     */
+    public AddCommentsResponse createAddCommentsResponse() {
+        return new AddCommentsResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddComments }
+     * 
+     */
+    public AddComments createAddComments() {
+        return new AddComments();
     }
 
     /**
@@ -128,6 +128,14 @@ public class ObjectFactory {
      */
     public TopicModel createTopicModel() {
         return new TopicModel();
+    }
+
+    /**
+     * Create an instance of {@link CommentsModel }
+     * 
+     */
+    public CommentsModel createCommentsModel() {
+        return new CommentsModel();
     }
 
     /**
@@ -192,15 +200,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://forumService/", name = "hello")
-    public JAXBElement<Hello> createHello(Hello value) {
-        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RetrieveTopics }{@code >}}
      * 
      */
@@ -210,21 +209,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddComments }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://forumService/", name = "addComments")
+    public JAXBElement<AddComments> createAddComments(AddComments value) {
+        return new JAXBElement<AddComments>(_AddComments_QNAME, AddComments.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddCommentsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://forumService/", name = "addCommentsResponse")
+    public JAXBElement<AddCommentsResponse> createAddCommentsResponse(AddCommentsResponse value) {
+        return new JAXBElement<AddCommentsResponse>(_AddCommentsResponse_QNAME, AddCommentsResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RegisterUser }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://forumService/", name = "registerUser")
     public JAXBElement<RegisterUser> createRegisterUser(RegisterUser value) {
         return new JAXBElement<RegisterUser>(_RegisterUser_QNAME, RegisterUser.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://forumService/", name = "helloResponse")
-    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
-        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
     }
 
     /**

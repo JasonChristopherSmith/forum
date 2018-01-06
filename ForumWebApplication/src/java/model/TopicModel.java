@@ -11,7 +11,7 @@ import java.util.Date;
 public class TopicModel {
     String topicName;
     String user;
-    Date date;
+    String date;
 
     public String getUser() {
         return user;
@@ -21,11 +21,11 @@ public class TopicModel {
         this.user = user;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
     

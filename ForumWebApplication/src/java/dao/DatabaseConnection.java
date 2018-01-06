@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/**
- *
- * @author Keagan
- */
+
+//This class only has two methods. One method is for inserting records into a database (like in the case for adding users,
+//topics and comments and the other method is for retriving data from the database into a ResultSet for checks and validations
+
+
 public class DatabaseConnection {
     
     private Connection connection;
@@ -19,6 +16,7 @@ public class DatabaseConnection {
     private Statement statement;
     private ResultSet resultSet;
     
+    //method accepts a SELECT query
     public void insertDataBase(String query){
         try {
             Class.forName(driver);
@@ -32,7 +30,7 @@ public class DatabaseConnection {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    //method accepts a SELECT query to perform function then returns a ResultSet
     public ResultSet retrieveDatabase (String query){
        try{
            Class.forName(driver);

@@ -4,12 +4,6 @@
 <xsd:import namespace="http://forumService/" schemaLocation="http://localhost:8084/ForumWebApplication/ForumService?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
-</message>
 <message name="addTopic">
 <part name="parameters" element="tns:addTopic" />
 </message>
@@ -34,11 +28,13 @@
 <message name="retrieveTopicsResponse">
 <part name="parameters" element="tns:retrieveTopicsResponse" />
 </message>
+<message name="addComments">
+<part name="parameters" element="tns:addComments" />
+</message>
+<message name="addCommentsResponse">
+<part name="parameters" element="tns:addCommentsResponse" />
+</message>
 <portType name="ForumService">
-<operation name="hello">
-<input wsam:Action="http://forumService/ForumService/helloRequest" message="tns:hello" />
-<output wsam:Action="http://forumService/ForumService/helloResponse" message="tns:helloResponse" />
-</operation>
 <operation name="addTopic">
 <input wsam:Action="http://forumService/ForumService/addTopicRequest" message="tns:addTopic" />
 <output wsam:Action="http://forumService/ForumService/addTopicResponse" message="tns:addTopicResponse" />
@@ -55,18 +51,13 @@
 <input wsam:Action="http://forumService/ForumService/retrieveTopicsRequest" message="tns:retrieveTopics" />
 <output wsam:Action="http://forumService/ForumService/retrieveTopicsResponse" message="tns:retrieveTopicsResponse" />
 </operation>
+<operation name="addComments">
+<input wsam:Action="http://forumService/ForumService/addCommentsRequest" message="tns:addComments" />
+<output wsam:Action="http://forumService/ForumService/addCommentsResponse" message="tns:addCommentsResponse" />
+</operation>
 </portType>
 <binding name="ForumServicePortBinding" type="tns:ForumService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
 <operation name="addTopic">
 <soap:operation soapAction="" />
 <input>
@@ -95,6 +86,15 @@
 </output>
 </operation>
 <operation name="retrieveTopics">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="addComments">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

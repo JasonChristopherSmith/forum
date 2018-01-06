@@ -11,6 +11,7 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import model.CommentsModel;
 import model.LoginModel;
 import model.RegistrationModel;
 import model.TopicModel;
@@ -22,14 +23,12 @@ import model.TopicModel;
 @WebService(serviceName = "ForumService")
 public class ForumService {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
-
+   
+    //this method receives the parameters set from the web page. It the creates an instance of the database controller 
+    //in order to use the methods in the database controller. It uses the register() method to insert the records into 
+    //the database.it then returns the updated model and stores it into a registration model which gets returned to the 
+    //front end controller for further validation
+    
     @WebMethod(operationName = "registerUser")
     public RegistrationModel registerUser(@WebParam(name = "register") RegistrationModel registrationModel) {
 
@@ -65,5 +64,15 @@ public class ForumService {
         topicModelCache = databaseController.retrieveTopics();
         return topicModelCache;
     }
+    
+     @WebMethod(operationName = "addComments")
+    public void  addComment(@WebParam(name = "addComments") CommentsModel commentModel) {
+        
+        DatabaseController databaseController = new DatabaseController();
+        databaseController.addComment(commentModel);
+        
+    }
+    
+    
 
 }
