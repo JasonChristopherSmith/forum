@@ -58,11 +58,11 @@ public class LoginController extends HttpServlet {
             if (message.equals("loginExists")) {
 
                 try {
-                    session.invalidate();
+//                    session.invalidate();
                     
                     topicModelCache = topicController.displayTopics();
                     session.setAttribute("topicModelCache", topicModelCache);
-                    getServletContext().getRequestDispatcher("view/jsp/topics.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/view/jsp/topics.jsp").forward(request, response);
                     
 //                    response.sendRedirect("view/jsp/topics.jsp");
                 } catch (IOException ex) {
