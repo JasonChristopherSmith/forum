@@ -3,9 +3,7 @@ package forumServiceConsume;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -18,7 +16,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="topicName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="user" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -37,8 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class TopicModel {
 
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar date;
+    protected String date;
     protected String topicName;
     protected String user;
 
@@ -47,10 +44,10 @@ public class TopicModel {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -59,10 +56,10 @@ public class TopicModel {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
+    public void setDate(String value) {
         this.date = value;
     }
 

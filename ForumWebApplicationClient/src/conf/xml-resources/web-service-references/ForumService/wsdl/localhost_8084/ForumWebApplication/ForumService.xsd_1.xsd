@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://forumService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://forumService/">
 
+<xs:element name="addComments" type="tns:addComments" />
+
+<xs:element name="addCommentsResponse" type="tns:addCommentsResponse" />
+
 <xs:element name="addTopic" type="tns:addTopic" />
 
 <xs:element name="addTopicResponse" type="tns:addTopicResponse" />
-
-<xs:element name="hello" type="tns:hello" />
-
-<xs:element name="helloResponse" type="tns:helloResponse" />
 
 <xs:element name="loginUser" type="tns:loginUser" />
 
@@ -43,9 +43,27 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="addTopic">
+<xs:complexType name="addComments">
 <xs:sequence>
-<xs:element name="topic" type="tns:topicModel" minOccurs="0" />
+<xs:element name="addComments" type="tns:commentsModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commentsModel">
+<xs:sequence>
+<xs:element name="comment" type="xs:string" minOccurs="0" />
+<xs:element name="topic" type="xs:string" minOccurs="0" />
+<xs:element name="user" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addCommentsResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="retrieveTopics">
+<xs:sequence>
+<xs:element name="retrieveTopic" type="tns:topicModel" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
@@ -57,33 +75,21 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="addTopicResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:topicModel" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="hello">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="helloResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="retrieveTopics">
-<xs:sequence>
-<xs:element name="retrieveTopic" type="tns:topicModel" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="retrieveTopicsResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:topicModel" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTopic">
+<xs:sequence>
+<xs:element name="topic" type="tns:topicModel" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTopicResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:topicModel" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 

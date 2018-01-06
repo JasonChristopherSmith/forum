@@ -1,4 +1,3 @@
-
 package controller;
 
 import dao.DatabaseConnection;
@@ -10,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.ws.Response;
+import model.CommentsModel;
 import model.LoginModel;
 import model.RegistrationModel;
 import model.TopicModel;
@@ -23,9 +23,7 @@ import model.TopicModel;
 //                      7.Retrieve comments to add more comments
 //                      8.Add Replies
 //                      9.Retrieve Replies
-
 //                      ForumService.java calls all the methods from DatabaseController.java
-
 public class DatabaseController {
 
     public RegistrationModel register(RegistrationModel registrationModel) {
@@ -78,7 +76,6 @@ public class DatabaseController {
             //  the ForumService.java, register() method which will return the model to the front end RegistrationController
             // which accepts the model and calls the getMessage() method and if the message is "emailExists" then
             // a message will be returned back to the register.jsp page that the email already exists in the database
-            
             if (resultSet.next()) {
 
                 registrationModel.setMessage("emailExists");
@@ -92,7 +89,7 @@ public class DatabaseController {
         registrationModel.setMessage("notExists");
         return registrationModel;
     }
-    
+
     public LoginModel login(LoginModel loginModel) {
 
         ResultSet resultSet;
@@ -121,7 +118,6 @@ public class DatabaseController {
         String topicName = topicModel.getTopicName();
         String user = "Jason";
         Date date = new Date();
-        
 
         DatabaseConnection databaseConnection = new DatabaseConnection();
         databaseConnection.insertDataBase("INSERT INTO Topics (TopicName,User,DateCreated) VALUES ('" + topicName + "','" + user + "','" + date + "')");
@@ -156,10 +152,24 @@ public class DatabaseController {
         }
         return null;
     }
-    
-    public void addComment(){}
-    public void retrieveComment(){}
-    public void addReply(){}
-    public void retrieveReply(){}
+
+    public void addComment(CommentsModel commentsModel) {
+
+        String comment = commentsModel.getComment();
+        String topic = commentsModel.getTopic();
+        String user = "Jason";
+
+        DatabaseConnection databaseConnection = new DatabaseConnection();
+        databaseConnection.insertDataBase("INSERT INTO Comments(Comment,Topic,User) VALUES('" + comment + "','" + topic + "', '" + user + "') ");
+    }
+
+    public void retrieveComment() {
+    }
+
+    public void addReply() {
+    }
+
+    public void retrieveReply() {
+    }
 
 }

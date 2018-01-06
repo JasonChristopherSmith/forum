@@ -27,21 +27,6 @@ public interface ForumService {
 
     /**
      * 
-     * @param name
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://forumService/", className = "forumServiceConsume.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://forumService/", className = "forumServiceConsume.HelloResponse")
-    @Action(input = "http://forumService/ForumService/helloRequest", output = "http://forumService/ForumService/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
-
-    /**
-     * 
      * @param topic
      * @return
      *     returns forumServiceConsume.TopicModel
@@ -99,5 +84,17 @@ public interface ForumService {
     public List<TopicModel> retrieveTopics(
         @WebParam(name = "retrieveTopic", targetNamespace = "")
         TopicModel retrieveTopic);
+
+    /**
+     * 
+     * @param addComments
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addComments", targetNamespace = "http://forumService/", className = "forumServiceConsume.AddComments")
+    @ResponseWrapper(localName = "addCommentsResponse", targetNamespace = "http://forumService/", className = "forumServiceConsume.AddCommentsResponse")
+    @Action(input = "http://forumService/ForumService/addCommentsRequest", output = "http://forumService/ForumService/addCommentsResponse")
+    public void addComments(
+        @WebParam(name = "addComments", targetNamespace = "")
+        CommentsModel addComments);
 
 }

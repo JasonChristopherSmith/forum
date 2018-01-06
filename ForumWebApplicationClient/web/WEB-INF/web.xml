@@ -9,6 +9,7 @@
         <servlet-name>RegistrationController</servlet-name>
         <url-pattern>/RegistrationController</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
@@ -17,7 +18,8 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
-       <servlet>
+    
+    <servlet>
         <servlet-name>Topic</servlet-name>
         <servlet-class>controller.TopicController</servlet-class>
     </servlet>
@@ -26,9 +28,13 @@
         <url-pattern>/TopicController</url-pattern>
     </servlet-mapping>
     
-<!--    <taglib>
-        <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
-        <taglib-location>/WEB-INF/c.tld</taglib-location>
-    </taglib>-->
+    <servlet>
+        <servlet-name>Comment</servlet-name>
+        <servlet-class>controller.CommentsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Comment</servlet-name>
+        <url-pattern>/CommentsController</url-pattern>
+    </servlet-mapping>
     
 </web-app>
